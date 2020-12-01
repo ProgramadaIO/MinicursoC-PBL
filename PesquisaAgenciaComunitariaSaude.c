@@ -5,28 +5,32 @@ void calculo() { //Função dos cálculos que com certeza vai se tornar várrias
 }
 
 int cadastro() { // função cadastro
-    int diaNascimento, mesNascimento, anoNascimento, sexo, possuiHidrocefalia, possuiCardio, possuiDiabetes, possuiPlanoSaude, resultado;
-    float peso;
+    int i, diaNascimento[50], mesNascimento[50], anoNascimento[50], sexo[50], possuiMicrocefalia[50];
+    int possuiCardio[50], possuiDiabetes[50], possuiPlanoSaude[50], resultado;
+    float peso[50];
+    //definindo vetores para facilitar os calculos
+    
 
     do {
         printf("Qual o dia do nascimento da criança? "); //as perguntas 
-        scanf("%d", &diaNascimento);
+        scanf("%d", &diaNascimento[i]);
         printf("Qual o mês do nascimento da criança? ");
-        scanf("%d", &mesNascimento);
+        scanf("%d", &mesNascimento[i]);
         printf("Qual o ano do nascimento da criança? ");
-        scanf("%d", &anoNascimento);
+        scanf("%d", &anoNascimento[i]);
         printf("Qual o sexo da criança? \n1. Feminino \n2. Masculino \n");
-        scanf("%d", &sexo);
+        scanf("%d", &sexo[i]);
         printf("Qual o peso da criança? ");
-        scanf("%f", &peso);
+        scanf("%f", &peso[i]);
         printf("A criança possui hidrocefalia? \n1. Sim \n2. Não \n");
-        scanf("%d", &possuiHidrocefalia);
+        scanf("%d", &possuiMicrocefalia[i]);
         printf("A criança possui problema cardíaco? \n1. Sim \n2. Não \n");
-        scanf("%d", &possuiCardio);
+        scanf("%d", &possuiCardio[i]);
         printf("A criança possui diabetes? \n1. Sim \n2. Não \n");
-        scanf("%d", &possuiDiabetes);
+        scanf("%d", &possuiDiabetes[i]);
         printf("A criança possui plano de saúde? \n1. Sim \n2. Não \n");
-        scanf("%d", &possuiPlanoSaude);
+        scanf("%d", &possuiPlanoSaude[i]);
+        i++;
 
         calculo(); // a função cálculo vai ser chamada aqui e vai passar como parâmetro as informações necessárias para outra função
 
