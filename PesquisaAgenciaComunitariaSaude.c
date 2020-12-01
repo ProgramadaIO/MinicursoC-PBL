@@ -39,8 +39,6 @@ int cadastro() { // função cadastro
 
         if (resultado == 1) { // em construção
             //resultado parcial
-        } else if (resultado == 3) {
-            return 0;
         }
     } while (resultado == 2);
 
@@ -55,6 +53,10 @@ int main () {
     switch (resultado) {
     case 1:
         cadastro();
+        printf("MENU \n1. Fazer novo cadastro \n2. Ver relatório completo \n3. Sair \n");
+        scanf("%d", &resultado);
+        cadastro(); //repetindo o menu pra ele continuar chamando a função.
+        //talvez tenha maneira melhor de fazer pq o codigo ficou repetido
         break;
     case 2:
         //resultadoCompleto();
