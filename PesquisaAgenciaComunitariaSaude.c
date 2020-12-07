@@ -91,10 +91,11 @@ int main (int i) {
         cadastro(contador);
         printf("MENU \n1. Fazer novo cadastro \n2. Ver relatório completo \n3. Sair \n");
         scanf("%d", &resultado);
-        if(resultado == 3){
+        if(resultado == 1){
+            cadastro(contador);
+        }else if(resultado == 3){
             return 0;
-        }else{
-        cadastro(contador); //repetindo o menu pra ele continuar chamando a função.
+         //repetindo o menu pra ele continuar chamando a função.
         //talvez tenha maneira melhor de fazer pq o codigo ficou repetido
         break;
         }
