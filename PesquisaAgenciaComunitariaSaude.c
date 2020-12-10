@@ -1,8 +1,5 @@
 #include <stdio.h>
 
-void calculo(int *contador, int i);//Função dos cálculos que com certeza vai se tornar várrias futuramente
-
-
 void calculo(int *contador, int i){
     printf("Quantidade de crianças cadastradas: %d\n", i);
     printf("Quantidade de crianças que nasceram no ano corrente: %d\n", contador[0]);
@@ -13,8 +10,8 @@ void calculo(int *contador, int i){
     printf("Percentual de crianças sem plano de saúde: %d\n", (contador[5]*100) / i);
 }
 
-int cadastro(int *contador) { // função cadastro
-    int i, j, diaNascimento[50], mesNascimento[50], anoNascimento[50], sexo[50], possuiMicrocefalia[50];
+int cadastro(int *contador, int i) { // função cadastro
+    int diaNascimento[50], mesNascimento[50], anoNascimento[50], sexo[50], possuiMicrocefalia[50];
     int possuiCardio[50], possuiDiabetes[50], possuiPlanoSaude[50], resultado;
     float peso[50];
     //definindo vetores para facilitar os calculos
@@ -22,11 +19,12 @@ int cadastro(int *contador) { // função cadastro
 /*contador[0] = nascidos no ano corrente
 contador[1] = sexo feminino
 contador[2] = sexo masculino
-contador[2] = possui microcefalia
-contador[3] = possui problema cardiaco
-contador[4] = não possui plano de saude*/
+contador[3] = possui microcefalia
+contador[4] = possui problema cardiaco
+contador[5] = não possui plano de saude*/
 
     do {
+        printf("====PESQUISA DA AGENCIA COMUNITARIA DE SAUDE====\n\n");
         printf("Qual o dia do nascimento da criança? "); //as perguntas 
         scanf("%d", &diaNascimento[i]);
         printf("Qual o mês do nascimento da criança? ");
@@ -69,7 +67,7 @@ contador[4] = não possui plano de saude*/
         printf("1. Ver o resultado parcial \n2. Continuar cadastrando \n3. Sair do cadastro \n"); // a opção 3 está finalizando o programa e a intenção é voltar ao menu,
         scanf("%d", &resultado);                                                                 // acredito que pode haver uma forma melhor para fazer isso
 
-        if (resultado == 1) { // em construção
+        if (resultado == 1) {
             //resultado parcial
             calculo(contador, i);
         }
@@ -77,37 +75,10 @@ contador[4] = não possui plano de saude*/
 
 }
 
-int main (int i) {
-    int k, resultado, contador[5]; // esse contador armazena e incrementa a cada informação que é necessária para os calculos
+int main () {
+    int k, i, resultado, contador[6]; // esse contador armazena e incrementa a cada informação que é necessária para os calculos
     for(k=0; k<5; k++){
         contador[k] = 0; // inicializando todas as posições em 0
     }
-    // menu onde vai poder ver o resultado completo (pensei em por isso no if do cadastro mas n desenvolvi ainda)
-    printf("MENU \n1. Fazer novo cadastro \n2. Ver relatório completo \n3. Sair \n");
-    scanf("%d", &resultado);
-
-    switch (resultado) {
-    case 1:
-        cadastro(contador);
-        printf("MENU \n1. Fazer novo cadastro \n2. Ver relatório completo \n3. Sair \n");
-        scanf("%d", &resultado);
-        if(resultado == 1){
-            cadastro(contador);
-        }else if(resultado == 3){
-            return 0;
-         //repetindo o menu pra ele continuar chamando a função.
-        //talvez tenha maneira melhor de fazer pq o codigo ficou repetido
-        break;
-        }
-    case 2:
-        //resultadoCompleto();
-        calculo(contador, i);
-        break;
-    case 3:
-        break;
-    default:
-        break;
-    }
-    
-    return 0;
+    cadastro(contador, i);
 }
