@@ -85,7 +85,8 @@ contador[5] = não possui plano de saude*/
             contador[5]++;
         }
         i++;
-        
+
+            calculoEInserirArquivo(contador, i);
          //a função cálculo vai ser chamada aqui e vai passar como parâmetro as informações necessárias para outra função
 
         printf("1. Ver o resultado parcial \n2. Continuar cadastrando \n3. Ver resultado total \n4. Sair do cadastro \n"); // a opção 3 está finalizando o programa e a intenção é voltar ao menu,
@@ -93,10 +94,8 @@ contador[5] = não possui plano de saude*/
 
         if (resultado == 1) {
             //resultado parcial
-            calculoEInserirArquivo(contador, i);
             lerArquivo();
         } else if (resultado == 3) {
-            calculoEInserirArquivo(contador, i);
             lerArquivo();
         }
     } while (resultado == 1 || resultado == 2);

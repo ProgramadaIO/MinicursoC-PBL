@@ -1,7 +1,7 @@
 Quantidade de crianças cadastradas: 18
 Quantidade de crianças que nasceram no ano corrente: 0
-Percentual de meninas: 5
-Percentual de meninos: 5
+Percentual de meninas: 11
+Percentual de meninos: 0
 Percentual de crianças com microcefalia: 0
 Percentual de crianças com problema cardíaco: 0
 Percentual de crianças sem plano de saúde: 5
