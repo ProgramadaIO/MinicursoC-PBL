@@ -1,13 +1,37 @@
 #include <stdio.h>
+#include <stdlib.h>
 
-void calculo(int *contador, int i){
-    printf("Quantidade de crianças cadastradas: %d\n", i);
-    printf("Quantidade de crianças que nasceram no ano corrente: %d\n", contador[0]);
-    printf("Percentual de meninas: %d\n", (contador[1]*100) / i);
-    printf("Percentual de meninos: %d\n", (contador[2]*100) / i);
-    printf("Percentual de crianças com microcefalia: %d\n", (contador[3]*100) / i);
-    printf("Percentual de crianças com problema cardíaco: %d\n", (contador[4]*100) / i);
-    printf("Percentual de crianças sem plano de saúde: %d\n", (contador[5]*100) / i);
+void lerArquivo() {
+
+    FILE *resultados;
+    resultados = fopen("Resultados.txt", "r");
+
+    if (resultados == NULL){
+        printf("Arquivo vazio!");
+    } else {
+
+        char info[1000];
+        while (fgets(info, 1000, resultados) != NULL){
+           printf("%s", info);
+        }
+    }
+
+    fclose(resultados);
+
+}
+
+void calculoEInserirArquivo(int *contador, int i){
+
+    FILE *resultados;
+    resultados = fopen("Resultados.txt", "w");
+    fprintf(resultados, "Quantidade de crianças cadastradas: %d\n", i);
+    fprintf(resultados, "Quantidade de crianças que nasceram no ano corrente: %d\n", contador[0]);
+    fprintf(resultados, "Percentual de meninas: %d\n", (contador[1]*100) / i);
+    fprintf(resultados, "Percentual de meninos: %d\n", (contador[2]*100) / i);
+    fprintf(resultados, "Percentual de crianças com microcefalia: %d\n", (contador[3]*100) / i);
+    fprintf(resultados, "Percentual de crianças com problema cardíaco: %d\n", (contador[4]*100) / i);
+    fprintf(resultados, "Percentual de crianças sem plano de saúde: %d\n", (contador[5]*100) / i);
+    fclose(resultados);
 }
 
 int cadastro(int *contador, int i) { // função cadastro
@@ -64,14 +88,18 @@ contador[5] = não possui plano de saude*/
         
          //a função cálculo vai ser chamada aqui e vai passar como parâmetro as informações necessárias para outra função
 
-        printf("1. Ver o resultado parcial \n2. Continuar cadastrando \n3. Sair do cadastro \n"); // a opção 3 está finalizando o programa e a intenção é voltar ao menu,
+        printf("1. Ver o resultado parcial \n2. Continuar cadastrando \n3. Ver resultado total \n4. Sair do cadastro \n"); // a opção 3 está finalizando o programa e a intenção é voltar ao menu,
         scanf("%d", &resultado);                                                                 // acredito que pode haver uma forma melhor para fazer isso
 
         if (resultado == 1) {
             //resultado parcial
-            calculo(contador, i);
+            calculoEInserirArquivo(contador, i);
+            lerArquivo();
+        } else if (resultado == 3) {
+            calculoEInserirArquivo(contador, i);
+            lerArquivo();
         }
-    } while (resultado == 2);
+    } while (resultado == 1 || resultado == 2);
 
 }
 
