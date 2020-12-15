@@ -103,7 +103,7 @@ contador[5] = não possui plano de saude*/
 }
 
 int main () {
-    int k, i, resultado, contador[6]; // esse contador armazena e incrementa a cada informação que é necessária para os calculos
+    int k, i = 0, resultado, contador[6]; // esse contador armazena e incrementa a cada informação que é necessária para os calculos
     for(k=0; k<5; k++){
         contador[k] = 0; // inicializando todas as posições em 0
     }
