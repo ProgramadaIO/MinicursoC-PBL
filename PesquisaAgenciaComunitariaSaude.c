@@ -48,7 +48,7 @@ contador[4] = possui problema cardiaco
 contador[5] = não possui plano de saude*/
 
     do {
-        printf("====PESQUISA DA AGENCIA COMUNITARIA DE SAUDE====\n\n");
+        printf("\n\n====PESQUISA DA AGENCIA COMUNITARIA DE SAUDE====\n\n");
         printf("Qual o dia do nascimento da criança? "); //as perguntas 
         scanf("%d", &diaNascimento[i]);
         printf("Qual o mês do nascimento da criança? ");
@@ -86,16 +86,14 @@ contador[5] = não possui plano de saude*/
         }
         i++;
 
-            calculoEInserirArquivo(contador, i);
+            
          //a função cálculo vai ser chamada aqui e vai passar como parâmetro as informações necessárias para outra função
 
-        printf("1. Ver o resultado parcial \n2. Continuar cadastrando \n3. Ver resultado total \n4. Sair do cadastro \n"); // a opção 3 está finalizando o programa e a intenção é voltar ao menu,
-        scanf("%d", &resultado);                                                                 // acredito que pode haver uma forma melhor para fazer isso
+        printf("1. Ver o resultado parcial \n2. Continuar cadastrando \n3. Ver resultado total \n4. Sair do cadastro \n");
+        scanf("%d", &resultado);
 
-        if (resultado == 1) {
-            //resultado parcial
-            lerArquivo();
-        } else if (resultado == 3) {
+        if (resultado == 1 || resultado == 3) {
+            calculoEInserirArquivo(contador, i);
             lerArquivo();
         }
     } while (resultado == 1 || resultado == 2);
@@ -104,7 +102,7 @@ contador[5] = não possui plano de saude*/
 
 int main () {
     int k, i = 0, resultado, contador[6]; // esse contador armazena e incrementa a cada informação que é necessária para os calculos
-    for(k=0; k<5; k++){
+    for(k=0; k<6; k++){
         contador[k] = 0; // inicializando todas as posições em 0
     }
     cadastro(contador, i);
